@@ -1,0 +1,16 @@
+def is_vps(ps):
+    stack = []
+    for char in ps:
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            if stack and stack[-1] == '(':
+                stack.pop()
+            else:
+                return "NO"
+    return "YES" if not stack else "NO"
+
+n = int(input())
+for _ in range(n):
+    ps = input().strip()
+    print(is_vps(ps))
